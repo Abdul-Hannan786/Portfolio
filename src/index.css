@@ -1,0 +1,483 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Obviously-Bold";
+  src: url('./assets/Fonts/obviously/ObviouslyComp-SemiBold.otf') format('truetype');
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url('./assets/Fonts/gilroy/Gilroy-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "mona";
+  src: url('../public/assets/fonts/Mona/Mona-Sans-RegularWide.ttf') format('truetype');
+}
+
+body, html {
+  width: 100%;
+  height: max-content;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+@keyframes blurCircle1 {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+}
+
+@keyframes blurCircle2 {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+@keyframes blurCircle3 {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+}
+
+@keyframes blurCircle4 {
+  0% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+}
+
+.animate-blurCircle1 {
+  animation: blurCircle1 6s infinite;
+}
+
+.animate-blurCircle2 {
+  animation: blurCircle2 7s infinite;
+}
+
+.animate-blurCircle3 {
+  animation: blurCircle3 8s infinite;
+}
+
+.animate-blurCircle4 {
+  animation: blurCircle4 9s infinite;
+}
+/* Hide scrollbars for the horizontal scrolling container */
+/* Hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+/* Projects.css */
+
+.mySwiper {
+  /* Ensures the Swiper container does not overflow */
+  overflow: hidden;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Ensure the slide width fits its content */
+  width: fit-content;
+  /* Reduce spacing between slides */
+  margin-right: 8px; /* Adjust this value as needed */
+}
+
+.swiper-slide img {
+  display: block;
+  width: auto; /* Ensure the image width is adjusted to fit the slide */
+  height: auto; /* Ensure the image height is adjusted to fit the slide */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+
+/* From Uiverse.io by rishichawda */ 
+/* The switch - the box around the slider */
+#theme-toggle-button {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 7em;
+  cursor: pointer;
+  height: max-content;
+}
+
+/* Hide default HTML checkbox */
+#toggle {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#container,
+#patches,
+#stars,
+#button,
+#sun,
+#moon,
+#cloud {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.25s;
+}
+
+/* night sky background */
+#toggle:checked + svg #container {
+  fill: #2b4360;
+}
+
+/* move button to right when checked */
+#toggle:checked + svg #button {
+  transform: translate(28px, 2.333px);
+}
+
+/* show/hide sun and moon based on checkbox state */
+#sun {
+  opacity: 1;
+}
+
+#toggle:checked + svg #sun {
+  opacity: 0;
+}
+
+#moon {
+  opacity: 0;
+}
+
+#toggle:checked + svg #moon {
+  opacity: 1;
+}
+
+/* show or hide background items on checkbox state */
+#cloud {
+  opacity: 1;
+}
+
+#toggle:checked + svg #cloud {
+  opacity: 0;
+}
+
+#stars {
+  opacity: 0;
+}
+
+#toggle:checked + svg #stars {
+  opacity: 1;
+}
+.mySwiper {
+  overflow: hidden;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: clamp(1vh, 2vh + 1vw, 3vh) clamp(1vw, 1vw + 2vh, 3vw);
+  font-family: monabold;
+  box-sizing: border-box; /* Ensure padding is included in the element's width */
+  max-width: 1200px;  
+  width: 100%;
+  margin: 0 auto;
+}
+.icon-svg{
+  color: white;
+}
+@media (max-width: 400px) {
+  .footer {
+    flex-direction: column;
+  }
+}
+
+.footer-left{
+  height: 100%;
+}
+.footer-left p {
+  margin: 0;
+  /* font-size: clamp(0.5rem, 0.4rem + 0.8vw, 1rem); */
+}
+.footer-right{
+  width: max-content;
+  display: flex;
+  height: 100%;
+  padding: 10px;
+  justify-content: space-around;
+  
+  align-items: center;
+}
+.social-icons {
+  display: flex; /* Flex for better responsiveness */
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  margin: 0;
+  padding: 0;
+}
+.main-icon{
+  margin: auto;
+}
+.social-icons .icon {
+margin: auto;
+  position: relative;
+  border-radius: 10px;
+  margin: 0px;
+  width: clamp(30px, 5vw, 50px); /* Responsive width */
+  height: clamp(30px, 5vw, 50px); /* Responsive height */
+  font-size: clamp(0.8rem, 0.66rem + 1.12vw, 1.5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.social-icons .tooltip {
+  position: absolute;
+  font-family: "Gilroy";
+  font-weight: bolder;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(10px, 1.5vw, 14px); /* Responsive font size */
+  background: #fff;
+  color: #333;
+  padding: clamp(3px, 0.5vw, 5px) clamp(5px, 1vw, 8px); /* Responsive padding */
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.social-icons .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #fff;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.social-icons .icon:hover .tooltip {
+  transition: all ease-out 0.3s;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.social-icons .facebook:hover,
+.social-icons .facebook:hover .tooltip,
+.social-icons .facebook:hover .tooltip::before {
+  background: #1877f2;
+  color: #fff;
+}
+
+.social-icons .github:hover,
+.social-icons .github:hover .tooltip,
+.social-icons .github:hover .tooltip::before {
+  background: #24292e;
+  color: #fff;
+}
+
+.social-icons .instagram:hover,
+.social-icons .instagram:hover .tooltip,
+.social-icons .instagram:hover .tooltip::before {
+  background: linear-gradient(45deg, #833ab4, #fd1d1d, #fd1d1d, #fcb045);
+  color: #fff;
+}
+
+.social-icons .linkedin:hover,
+.social-icons .linkedin:hover .tooltip,
+.social-icons .linkedin:hover .tooltip::before {
+  background: #0077b5;
+  color: #fff;
+}
+
+.social-icons .gmail:hover,
+.social-icons .gmail:hover .tooltip,
+.social-icons .gmail:hover .tooltip::before {
+  background: #ea4335;
+  color: #fff;
+}
+
+/* From Uiverse.io by Galahhad */ 
+/* tooltip settings 👇 */
+
+.copy {
+  /* button */
+  --button-bg: #353434;
+  --button-hover-bg: #464646;
+  --button-text-color: #CCCCCC;
+  --button-hover-text-color: #8bb9fe;
+  --button-border-radius: 10px;
+  --button-diameter: 36px;
+  --button-outline-width: 1px;
+  --button-outline-color: rgb(141, 141, 141);
+  /* tooltip */
+  --tooltip-bg: #f4f3f3;
+  --toolptip-border-radius: 4px;
+  --tooltip-font-family: Menlo, Roboto Mono, monospace;
+  /* 👆 this field should not be empty */
+  --tooltip-font-size: 12px;
+  /* 👆 this field should not be empty */
+  --tootip-text-color: rgb(50, 50, 50);
+  --tooltip-padding-x: 7px;
+  --tooltip-padding-y: 7px;
+  --tooltip-offset: 8px;
+  /* --tooltip-transition-duration: 0.3s; */
+  /* 👆 if you need a transition, 
+  just remove the comment,
+  but I didn't like the transition :| */
+}
+
+.copy {
+  box-sizing: border-box;
+  width: var(--button-diameter);
+  height: var(--button-diameter);
+  border-radius: var(--button-border-radius);
+  color: var(--button-text-color);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+
+.tooltip {
+  position: absolute;
+  opacity: 0;
+  visibility: 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font: var(--tooltip-font-size) var(--tooltip-font-family);
+  color: var(--tootip-text-color);
+  background: var(--tooltip-bg);
+  padding: var(--tooltip-padding-y) var(--tooltip-padding-x);
+  border-radius: var(--toolptip-border-radius);
+  pointer-events: none;
+  transition: all var(--tooltip-transition-duration) cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.tooltip::before {
+  content: attr(data-text-initial);
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: calc(var(--tooltip-padding-y) / 2 * -1);
+  width: var(--tooltip-padding-y);
+  height: var(--tooltip-padding-y);
+  background: inherit;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  z-index: -999;
+  pointer-events: none;
+}
+
+.copy svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.checkmark {
+  display: none;
+}
+
+/* actions */
+
+.copy:hover .tooltip,
+.copy:focus:not(:focus-visible) .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: calc((100% + var(--tooltip-offset)) * -1);
+}
+
+.copy:focus:not(:focus-visible) .tooltip::before {
+  content: attr(data-text-end);
+}
+
+.copy:focus:not(:focus-visible) .clipboard {
+  display: none;
+}
+
+.copy:focus:not(:focus-visible) .checkmark {
+  display: block;
+}
+
+.copy:hover,
+.copy:focus {
+  background-color: var(--button-hover-bg);
+}
+
+.copy:active {
+  outline: var(--button-outline-width) solid var(--button-outline-color);
+}
+
+.copy:hover svg {
+  color: var(--button-hover-text-color);
+}
