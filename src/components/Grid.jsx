@@ -77,7 +77,7 @@ const Grid = () => {
             Snag my resume and dive into my skill-filled adventures! 🌟📄✨
           </p>
           <a
-            href="/path-to-your-resume.pdf"
+            href="https://drive.google.com/file/d/1PGgKQa4qwDMdyMHegludwjRYJ91j5rm7/view?usp=sharing" target="blank"
             download
             className=" transition duration-300 ease-in-out "
           >

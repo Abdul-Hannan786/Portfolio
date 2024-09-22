@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import Testimonial from "./components/Testimonials";
 import Footer from "./components/Footer";
 import LocomotiveScroll from "locomotive-scroll";
+import NotFound from "./components/NotFound";
 
 function App() {
   const [isVisible, setIsVisible] = useState(true);
@@ -31,7 +32,7 @@ function App() {
 
   return (
     <Router>
-      <div className="dark:bg-primary bg-yellow-50 relative overflow-hidden">
+      <div className="dark:bg-primary bg-yellow-50 relative overflow-hidden h-max">
 
         <div className="z-[100]">
         <div className="absolute inset-0  pointer-events-none z-0">
@@ -60,6 +61,7 @@ function App() {
             />
             <Route path="/cheers" element={<Testimonial />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </div>

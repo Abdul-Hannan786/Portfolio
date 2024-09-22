@@ -65,7 +65,7 @@ const Navbar = ({ locoScroll }) => {
                   <Link
                     to={link === "Home" ? "/" : `/${link.toLowerCase()}`}
                     onClick={() => handleLinkClick(link)}
-                    className={`block py-2 px-3 font-gilroy text-black font-extra z-100 font-bold text-5xl ${activeLink === link ? "text-blue-600" : "text-black dark:text-white"}`}
+                    className={`block py-2 px-3 font-gilroy text-black font-extra z-100 font-bold text-5xl ${activeLink === link ? "text-blue-600" : "text-black"}`}
                   >
                     {link}
                   </Link>

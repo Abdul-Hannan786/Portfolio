@@ -37,11 +37,19 @@ const Contact = () => {
         </h4>
       </div>
       <div id="contact-btns" className="text-center mb-8">
-        <button className="relative inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400">
-          <span className="text-lg">Ignite the Connection</span>
-          <i className="ri-arrow-right-up-line text-xl ml-2"></i>
-          <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 opacity-30 rounded-lg"></span>
-        </button>
+      <a href="https://www.linkedin.com/in/konain-raza-" target="_blank" rel="noopener noreferrer">
+  <button className="overflow-hidden w-32 p-2 h-12 dark:bg-gray-900 bg-white text-black  dark:text-white border-none rounded-2xl text-xl font-bold cursor-pointer relative z-10 group">
+    Connect 🤝
+    <span className="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
+    <span className="absolute w-36 h-32 -top-8 -left-2 bg-purple-400 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
+    <span className="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
+    <span className="group-hover:opacity-100 text-black  dark:text-white group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10">
+      Merge ✨
+    </span>
+  </button>
+</a>
+
+
       </div>
       <form id="contact-form" onSubmit={sendEmail} className="max-w-lg mx-auto bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg space-y-4 z-0">
         <div id="contact-part1" className="flex flex-col md:flex-row gap-4">
