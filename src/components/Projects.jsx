@@ -71,7 +71,7 @@ const ProjectsSection = () => {
   // }, []);
 
   return (
-    <section className="projects-section h-screen relative py-28">
+    <section className="projects-section h-screen relative py-28 scroll-smooth">
       <div className=" m-auto px-4">
         <h1 className="text-center text-5xl font-obviouslyBold text-[5rem]  dark:text-white text-gray-800 font-bold py-5 uppercase bg-gradient-text bg-clip-text  m-auto">
           Fresh Endeavors: Recent Ventures
@@ -79,7 +79,6 @@ const ProjectsSection = () => {
 
         <div className=" h-max ">
           <Swiper
-            spaceBetween={40} // Default space between slides
             freeMode={true}
             modules={[FreeMode, Autoplay]}
             className="w-full h-full"
@@ -95,15 +94,15 @@ const ProjectsSection = () => {
               },
               640: {
                 slidesPerView: 1.5, // For mobile devices
-                spaceBetween: 20,
+                spaceBetween: 40,
               },
               768: {
                 slidesPerView: 2, // For tablets
                 spaceBetween: 40,
               },
               1024: {
-                slidesPerView: 3, // For laptops/desktops
-                spaceBetween: 10,
+                slidesPerView: 2.5, // For laptops/desktops
+                spaceBetween: 40,
               },
             }}
           >

@@ -15,6 +15,7 @@ const Contact = () => {
       email: data.get("email"),
       message: data.get("message"),
     };
+  
     emailjs
       .send(serviceId, templateId, emailFormat, publicId)
       .then(() => {
@@ -22,11 +23,13 @@ const Contact = () => {
       })
       .catch((error) => {
         toast.error(`Oh no! There was an error. ${error}`);
+        console.log(error);
       });
   };
+  
 
   return (
-    <div id="contact" className="relative py-28 px-4 md:px-8 lg:pt-36  ">
+    <div id="contact" className="relative min-h-screen px-4 md:px-8 lg:pt-36  ">
   
       <div id="contact-text" className="text-center mb-8 mx-auto">
         <h1 className="text-7xl w-[90%] md:text-7xl mx-auto lg:text-8xl font-obviouslyBold text-gray-900 dark:text-gray-100">
@@ -51,7 +54,7 @@ const Contact = () => {
 
 
       </div>
-      <form id="contact-form" onSubmit={sendEmail} className="max-w-lg mx-auto bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg space-y-4 z-0">
+      <form id="contact-form" onSubmit={sendEmail} className="max-w-2xl h-max mx-auto bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg space-y-4 z-0">
         <div id="contact-part1" className="flex flex-col md:flex-row gap-4">
           <input
             type="text"
@@ -59,7 +62,7 @@ const Contact = () => {
             name="name"
             placeholder="Name"
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-4 border border-gray-300 rounded-lg dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <input
             type="email"
@@ -67,7 +70,7 @@ const Contact = () => {
             name="email"
             placeholder="Email"
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-4 border border-gray-300 rounded-lg dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
         <input
@@ -76,16 +79,16 @@ const Contact = () => {
           name="subject"
           placeholder="Subject"
           required
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full p-4 border border-gray-300 rounded-lg dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <textarea
           id="message"
           name="message"
           placeholder="Message"
           required
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full p-4 border border-gray-300 rounded-lg dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         ></textarea>
-        <button type="submit" id="email-send" className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400">
+        <button type="submit" id="email-send" className="w-full p-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400">
           Send
         </button>
       </form>

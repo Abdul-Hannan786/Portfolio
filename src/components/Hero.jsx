@@ -21,7 +21,7 @@ const Hero = ({ locoScroll }) => {
   };
 
   return (
-    <section className="hero-section relative lg:pt-24 md:pt-28 sm:pt-28 pt-32">
+    <section className="hero-section relative lg:pt-12 md:pt-28 sm:pt-28 pt-28">
       <div className="py-8 px-4 mx-auto max-w-screen-xl text-center relative z-20 ">
         <a
           href="#"

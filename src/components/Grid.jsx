@@ -40,7 +40,7 @@ const Grid = () => {
   };
 
   return (
-    <div className="z-[100] grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-4  w-[95%] mx-auto py-36 px-4 md:px-8 lg:pt-36 " id="about">
+    <div className="scroll-smooth z-[100] grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-4  w-[95%] mx-auto py-36 px-4 md:px-8 lg:pt-36 " id="about">
       <div className="col-span-1 sm:col-span-2 lg:col-span-2 border-opacity-30 border-solid rounded-3xl shadow-lg p-6 flex items-center justify-center bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100">
         <div className="text-left text-gray-800 dark:text-gray-200 ">
           <h2 className="text-4xl font-mona font-bold sm:text-4xl lg:test-5xl md:text-3xl mb-2">

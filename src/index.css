@@ -17,7 +17,7 @@
 
 @font-face {
   font-family: "mona";
-  src: url('../public/assets/fonts/Mona/Mona-Sans-RegularWide.ttf') format('truetype');
+  src: url('/assets/fonts/Mona/Mona-Sans-RegularWide.ttf') format('truetype');
 }
 
 body, html {
@@ -235,10 +235,10 @@ body, html {
   align-items: center;
   color: #fff;
   padding: clamp(1vh, 2vh + 1vw, 3vh) clamp(1vw, 1vw + 2vh, 3vw);
-  font-family: monabold;
+  font-family: mona;
   box-sizing: border-box; /* Ensure padding is included in the element's width */
-  max-width: 1200px;  
-  width: 100%;
+  /* max-width: 1200px;   */
+  width: 100vw;
   margin: 0 auto;
 }
 .icon-svg{

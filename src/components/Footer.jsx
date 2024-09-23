@@ -43,7 +43,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="footer flex justify-between p-4 z-[100] relative">
+    <footer className="footer flex justify-between p-4 z-[100] relative w-full">
       <div className="footer-left">
         <p className="font-gilroy text-xl font-bold text-center sm:text-md dark:text-white text-gray-800">
           Made with <span className="emoji">❤️</span> by{' '}
