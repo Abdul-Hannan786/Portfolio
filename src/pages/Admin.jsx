@@ -7,7 +7,7 @@ const Admin = () => {
 
   useEffect(() => {
     const password = prompt("Enter Admin Password:");
-    if (password === process.env.ADMIN_PASSWORD) {
+    if (password === import.meta.env.VITE_ADMIN_PASSWORD) {
       setIsAuth(true);
     } else {
       alert("Access Denied! Unauthorized credentials.");
