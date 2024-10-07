@@ -1,27 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Marquee from "react-fast-marquee";
 import TestimonialCard from "./TestimonialCard";
-import { db } from "../../firebase-config";
-import { getDocs, collection } from "firebase/firestore";
 
-function Testimonials() {
-  const [testimonials, setTestimonials] = useState([]); 
-
-  const fetchTestimonials = async () => {
-    try {
-      const response = await getDocs(collection(db, "reviews"));
-      const data = response.docs.map((doc) => doc.data());
-      console.log(data);
-      setTestimonials(data);
-    } catch (error) {
-      console.error("Error fetching testimonials", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchTestimonials();
-  }, []);
-
+function Testimonials({ testimonials }) {
   return (
     <div
       id="allcomments"
@@ -32,15 +13,14 @@ function Testimonials() {
       </h1>
 
       <Marquee speed={100} gradient={false} className="space-x-6" pauseOnHover>
-        {testimonials.length > 0 ? ( 
+        {testimonials && testimonials.length > 0 ? ( 
           testimonials.map((testimonial, index) => (
-            <TestimonialCard
-              key={index}
-              reviews={testimonial}
-            />
+            <TestimonialCard key={index} reviews={testimonial} />
           ))
         ) : (
-          <div className="text-center text-lg text-gray-500">Loading testimonials...</div>
+          <div className="text-center text-lg text-gray-500">
+            Loading testimonials...
+          </div>
         )}
       </Marquee>
     </div>

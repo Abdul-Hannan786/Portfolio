@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
 
 const ToggleButton = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false); // Dark mode state
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
   const handleDarkModeToggle = () => {
     const newDarkModeState = !isDarkMode;
     setIsDarkMode(newDarkModeState);
-    console.log(newDarkModeState);
-
     document.documentElement.classList.toggle("dark", newDarkModeState);
-    localStorage.setItem("darkMode", JSON.stringify(newDarkModeState)); // Store the state in localStorage
+    localStorage.setItem("darkMode", JSON.stringify(newDarkModeState));
   };
+
   useEffect(() => {
     const storedDarkMode = JSON.parse(localStorage.getItem("darkMode"));
     if (storedDarkMode !== null) {
       setIsDarkMode(storedDarkMode);
-      console.log(storedDarkMode);
       document.documentElement.classList.toggle("dark", storedDarkMode);
+    } else {
+      document.documentElement.classList.add("dark");
     }
   }, []);
   return (

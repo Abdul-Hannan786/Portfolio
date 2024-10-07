@@ -3,14 +3,15 @@ import React from "react";
 const ProjectCard = ({ project }) => {
   const {description, liveLink, githubLink, thumbnail, tags, name} = project;
   
-  console.log("Tags=>",typeof tags)
+  console.log("Tags=>", tags)
 
   return (
-    <div className="h-max group overflow-hidden rounded-3xl shadow-lg transition-transform transform hover:scale-105 flex-shrink-0">
+  <div className="relative h-max group overflow-hidden rounded-3xl shadow-lg transition-transform transform hover:scale-105 flex-shrink-0">
       <img
+      loading="lazy"
         src={thumbnail}
         alt={name}
-        className="aspect-[4.5/3] object-cover rounded-t-3xl transition-transform duration-500 group-hover:scale-110"
+        className="aspect-[5/3] object-cover rounded-t-3xl transition-transform duration-500 group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70 group-hover:opacity-80 transition-opacity duration-300"></div>
       <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
@@ -23,14 +24,14 @@ const ProjectCard = ({ project }) => {
             {description}
           </p>
           <div className="flex flex-wrap gap-1 sm:gap-2 md:gap-3">
-            {/* {tags.map((tag, index) => (
+            {tags.split(",").map((tag, index) => (
               <span
                 key={index}
                 className="bg-gradient-to-r from-blue-400 to-blue-600 text-white text-xs sm:text-sm px-2 py-1 rounded-full shadow-sm"
               >
                 {tag}
               </span>
-            ))} */}
+            ))}
           </div>
         </div>
         <div className="flex justify-between items-center">

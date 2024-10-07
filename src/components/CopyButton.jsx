@@ -7,7 +7,7 @@ const ClipboardButton = () => {
   const [copied, setCopied] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
 
-  const email = "konainraza105@gmail.com"; // Replace with your actual email
+  const email = "konainraza105@gmail.com"; 
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(email).then(() => {
@@ -15,11 +15,11 @@ const ClipboardButton = () => {
       setShowConfetti(true);
       
       setTimeout(() => {
-        setShowConfetti(false); // Reset confetti after 3 seconds
+        setShowConfetti(false);
       }, 5000);
       
       setTimeout(() => {
-        setCopied(false); // Reset tooltip after 2 seconds
+        setCopied(false); 
       }, 2000);
     });
   };

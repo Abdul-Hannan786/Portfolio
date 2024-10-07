@@ -33,17 +33,21 @@ const ReviewSubmission = () => {
       toast.error("Failed to add review. Please try again.");
     } finally {
       setLoading(false);
+      e.target.reset();
     }
   };
 
   return (
-    <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-5xl xl:p-0 dark:bg-gray-800 dark:border-gray-700 font-gilroy">
+    <div className="w-full bg-white rounded-3xl shadow dark:border sm:max-w-lg md:max-w-5xl xl:p-0 dark:bg-gray-800 dark:border-gray-700 font-gilroy mx-auto">
       <div className="p-6 md:p-8">
-        <h1 className="text-2xl font-bold leading-tight tracking-tight text-gray-900 md:text-3xl dark:text-white mb-4">
+        <h1 className="text-xl md:text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white mb-4 text-left">
           Submit a Review
         </h1>
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handleSubmit}>
-          <div>
+        <form
+          className="flex flex-wrap gap-4"
+          onSubmit={handleSubmit}
+        >
+          <div className="flex-1 min-w-[200px]">
             <label
               htmlFor="reviewerName"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -55,10 +59,10 @@ const ReviewSubmission = () => {
               name="name"
               id="reviewerName"
               required
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>
-          <div>
+          <div className="flex-1 min-w-[200px]">
             <label
               htmlFor="reviewerPicture"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -70,10 +74,10 @@ const ReviewSubmission = () => {
               name="image"
               id="reviewerPicture"
               required
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>
-          <div className="col-span-2">
+          <div className="w-full">
             <label
               htmlFor="review"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -84,10 +88,10 @@ const ReviewSubmission = () => {
               name="review"
               id="review"
               required
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>
-          <div className="col-span-2">
+          <div className="w-full">
             <button
               type="submit"
               className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

@@ -5,35 +5,21 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import "../index.css";
 import ProjectCard from "./ProjectCard";
-import { db } from "../../firebase-config"
-import { collection, getDocs } from 'firebase/firestore';
+import LocomotiveScroll from "locomotive-scroll";
 
-const ProjectsSection = () => {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
+const ProjectsSection = ({masterpieces}) => {
   useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await getDocs(collection(db, "projects"));
-      
-        const data = response.docs.map((doc) => (
-          
-          {
-          id: doc.id, 
-          ...doc.data(),
-        }));
-        setProjects(data);
-      } catch (err) {
-        setError('Failed to fetch projects. Please try again later.'); 
-      } finally {
-        setLoading(false); 
-      }
-    };
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector(".projects-section"),
+      smooth: true,
+    });
 
-    fetchProjects();
+    return () => {
+      scroll.destroy();
+    };
   }, []);
+
+
 
 
 
@@ -44,7 +30,6 @@ const ProjectsSection = () => {
           Fresh Endeavors: Recent Ventures
         </h1>
 
-     {loading || error ? "Loading":(
          <div className=" h-max ">
          <Swiper
            freeMode={true}
@@ -74,7 +59,7 @@ const ProjectsSection = () => {
              },
            }}
          >
-           {projects.map((project) => (
+           {masterpieces.map((project) => (
              <SwiperSlide
                key={project.id}
                className="bg-transparent swiper-slide h-full "
@@ -84,7 +69,6 @@ const ProjectsSection = () => {
            ))}
          </Swiper>
        </div>
-     )}
       </div>
     </section>
   );
