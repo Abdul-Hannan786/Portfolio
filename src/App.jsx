@@ -14,6 +14,9 @@ import NotFound from "./components/NotFound";
 import Admin from "./pages/Admin";
 
 function App() {
+  console.log(process.env.ADMIN_PASSWORD)
+  console.log(import.meta.env.VITE_ADMIN_PASSWORD)
+
   const [isVisible, setIsVisible] = useState(true);
   const locomotiveScroll = new LocomotiveScroll();
   const [testimonials, setTestimonials] = useState([]);
