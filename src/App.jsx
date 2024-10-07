@@ -10,6 +10,7 @@ import Testimonial from "./components/Testimonials";
 import Footer from "./components/Footer";
 import LocomotiveScroll from "locomotive-scroll";
 import NotFound from "./components/NotFound";
+import Admin from "./pages/Admin"
 
 function App() {
   const [isVisible, setIsVisible] = useState(true);
@@ -61,6 +62,8 @@ function App() {
             />
             <Route path="/cheers" element={<Testimonial />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/admin" element={<Admin />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
