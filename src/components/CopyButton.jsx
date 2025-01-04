@@ -29,13 +29,12 @@ const ClipboardButton = () => {
 <>
 {showConfetti && <Confetti />}
 
-<button
+<div
   className="copy dark:bg-transparent border border-black"
   onClick={copyToClipboard}
 >
 
   <span data-text-initial="Copied to clipboard" className="tooltip">
-    {copied ? "Copied!" : "Copy to clipboard"}
   </span>
   <span>
     <svg
@@ -76,7 +75,7 @@ const ClipboardButton = () => {
       </g>
     </svg>
   </span>
-</button>
+</div>
 </>
   );
 };

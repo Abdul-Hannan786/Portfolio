@@ -4,14 +4,14 @@ import Projects from "../components/Projects";
 import Testimonials from "../components/Testimonials";
 import Contact from "../components/Contact";
 
-const Home = ({ masterpieces, testimonials }) => {
+const Home = () => {
   return (
-    <div>
+    <>
       <Hero />
-      <Projects masterpieces={masterpieces} />
-      <Testimonials testimonials={testimonials} />
+      <Projects />
+      <Testimonials/>
       <Contact />
-    </div>
+    </> 
   );
 };
 

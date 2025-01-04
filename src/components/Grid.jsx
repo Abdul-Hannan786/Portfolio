@@ -46,10 +46,10 @@ const Grid = () => {
     >
       <div className="col-span-1 sm:col-span-2 lg:col-span-2 border-opacity-30 border-solid rounded-3xl shadow-lg p-6 flex items-center justify-center bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100">
         <div className="text-left text-gray-800 dark:text-gray-200 ">
-          <h2 className="text-4xl font-mona font-bold sm:text-4xl lg:test-5xl md:text-3xl mb-2">
+          <h2 className="text-gray-800 dark:text-gray-200 text-2xl font-mona font-bold mb-2">
             Hey There, I'm Konain Raza! 😎
           </h2>
-          <p className="text-xl sm:text-2xl lg:text-2xl font-gilroy">
+          <p className="text-xl sm:text-xl lg:text-xl  font-gilroy">
             Stirring up creativity and code to bake digital masterpieces! 🎨💻
             If tech is a puzzle, I'm your missing piece—let’s solve it together
             and make magic happen! 🧩✨🚀
@@ -59,11 +59,11 @@ const Grid = () => {
 
       <div className="relative border-opacity-30 border-solid rounded-3xl shadow-lg p-4 flex flex-col gap-4 items-center justify-center bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100">
         {showConfetti && <Confetti />}
-        <h1 className="text-gray-800 dark:text-gray-200 text-3xl font-mona font-bold sm:text-4xl lg:test-4xl md:text-3xl text-center">
+        <h2 className="text-gray-800 dark:text-gray-200 text-2xl font-mona font-bold mb-2 text-center">
           Ready to team up for a project? ✨
-        </h1>
+        </h2>
         <button className="flex items-center space-x-2 border border-white dark:border-gray-200 text-gray-800 dark:text-gray-200 p-2 rounded-full  transition duration-300">
-          <span className="text-sm sm:text-base lg:text-lg font-bold font-mona ">
+          <span className="text-sm sm:text-base font-bold font-mona ">
             Steal My Email! ✌️
           </span>
 
@@ -73,12 +73,10 @@ const Grid = () => {
 
       <div className="border-opacity-30 border-solid rounded-3xl shadow-lg p-4 flex items-center justify-center bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100">
         <div className="text-center flex flex-col gap-2">
-          <h2 className="text-gray-800 dark:text-gray-200 text-3xl font-mona font-bold sm:text-4xl lg:test-4xl md:text-3xl">
+          <h2 className="text-gray-800 dark:text-gray-200 text-2xl font-mona font-bold mb-2">
             Want to See My Powers?💪
           </h2>
-          <p className="text-xl sm:text-2xl lg:text-xl md:text-xl font-gilroy text-gray-800 dark:text-gray-200">
-            Snag my resume and dive into my skill-filled adventures! 🌟📄✨
-          </p>
+
           <a
             href="https://drive.google.com/file/d/1PGgKQa4qwDMdyMHegludwjRYJ91j5rm7/view?usp=sharing"
             target="blank"
@@ -87,12 +85,9 @@ const Grid = () => {
           >
             <button
               type="submit"
-              className="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg dark:bg-transparent bg-s backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-purple-950 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border rounded-full group font-mona"
+              className="flex justify-center gap-2 items-center mx-auto shadow-xl text-base dark:bg-transparent bg-s backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-purple-950 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border rounded-full group font-mona"
             >
-              <span className="text-black dark:text-white">
-                {" "}
-                Fetch My Fame!
-              </span>
+              <span className="text-black dark:text-white">Fetch My Fame!</span>
               <svg
                 className="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45"
                 viewBox="0 0 16 19"
@@ -110,21 +105,20 @@ const Grid = () => {
 
       <div className="col-span-1 sm:col-span-2 lg:col-span-2 flex flex-col gap-4">
         <div className="border-opacity-30 border-solid rounded-3xl shadow-lg p-4 py-7 flex flex-col items-left h-auto dark: bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100">
-          <h2 className="text-gray-800 dark:text-gray-200 text-4xl font-mona font-bold sm:text-4xl lg:test-5xl md:text-4xl mb-2">
+          <h2 className="text-gray-800 dark:text-gray-200 text-2xl font-mona font-bold mb-2">
             What’s on My Plate? 🥗✨
           </h2>
-          <p className="text-xl sm:text-2xl lg:text-2xl font-gilroy text-gray-800 dark:text-gray-200">
-            Diving into web apps, new tech stacks, and solutions that make
-            waves! 🌊 Ready for the next challenge—because who doesn’t enjoy a
-            little code chaos? 😄💻
+          <p className="text-xl sm:text-xl lg:text-xl font-gilroy text-gray-800 dark:text-gray-200">
+            Crafting web apps, mastering tech stacks, and embracing the code
+            adventure! 🌊💻
           </p>
         </div>
 
         <div className="border-opacity-30 border-solid rounded-3xl shadow-lg p-4 px-4 flex flex-col items-center justify-center w-full sm:h-32 lg:h-32 bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100">
-          <h2 className="text-gray-800 dark:text-gray-200 text-2xl sm:text-3xl md:text-2xl lg:text-2xl font-mona font-bold text-left">
+          <h2 className="text-gray-800 dark:text-gray-200 text-2xl font-mona font-bold mb-2">
             Whipping up something special in the code kitchen! 🍳✨
           </h2>
-          <p className="hidden sm:inline text-xl w-full sm:text-2xl lg:text-2xl font-gilroy text-gray-800 dark:text-gray-200 text-left">
+          <p className="hidden sm:inline text-xl sm:text-xl lg:text-xl  w-full font-gilroy text-gray-800 dark:text-gray-200 text-left">
             Stay tuned—chaos is on the menu! 😄💻
           </p>
         </div>
@@ -133,10 +127,10 @@ const Grid = () => {
       <div className="col-span-1 sm:col-span-2 lg:col-span-2 border-opacity-30 border-solid rounded-3xl shadow-lg flex items-center justify-center relative overflow-hidden bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100">
         <div className="  flex flex-col items-start h-auto w-full py-2">
           <div className="w-full px-5">
-            <h2 className="text-gray-800 dark:text-gray-200 text-4xl font-mona font-bold sm:text-5xl lg:text-4xl md:text-4xl mb-2">
+            <h2 className="text-gray-800 dark:text-gray-200 text-2xl font-mona font-bold mb-2">
               My Tech Arsenal 💥
             </h2>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-2xl font-gilroy text-gray-800 dark:text-gray-200 text-left ">
+            <p className="text-xl sm:text-xl lg:text-xl  font-gilroy text-gray-800 dark:text-gray-200 text-left ">
               Surfing the code waves like a tech-savvy mermaid! 🧜‍♂️🌊 Whipping up
               solutions like a master chef—just add a pinch of creativity! 🍳✨
               Are you ready to sprinkle some code magic? Let’s create some
@@ -160,7 +154,7 @@ const Grid = () => {
                   <img
                     src={`https://skillicons.dev/icons?i=${skill}&theme=dark`}
                     alt={skill}
-                    className="h-14 mx-3 transition-transform duration-200 hover:scale-125" // Slightly smaller height for better responsiveness
+                    className="h-13 mx-3 transition-transform duration-200 hover:scale-125" // Slightly smaller height for better responsiveness
                   />
                 </a>
               ))}

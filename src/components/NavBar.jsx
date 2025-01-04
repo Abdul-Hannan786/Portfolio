@@ -13,6 +13,7 @@ const Navbar = ({ locoScroll }) => {
   };
 
   const handleLinkClick = (link) => {
+    console.log(document.getElementById(`${link.toLowerCase()}`))
     setActiveLink(link);
     setIsMobileMenuOpen(false);
   };
@@ -34,30 +35,33 @@ const Navbar = ({ locoScroll }) => {
           </span>
           <div className="hidden md:flex p-4">
             <ul className="flex space-x-8">
-              {["Home", "Masterpieces", "Cheers", "Contact"].map(
-                (link) => (
-                  <li key={link}>
-                    <Link
-                      to={link === "Home" ? "/" : `/${link.toLowerCase()}`}
-                      onClick={() => handleLinkClick(link)}
-                      className={`block py-2 px-3 md:p-0 font-mona font-extra z-100 font-bold 
-                      ${
-                        activeLink === link
-                          ? "text-blue-600"
-                          : "text-black dark:text-white"
-                      }
-                      ${
-                        darkMode
-                          ? "text-white hover:bg-gray-700"
-                          : "text-gray-900 hover:bg-gray-100"
-                      }
-                      rounded md:hover:bg-transparent dark:text-white md:hover:text-blue-700`}
-                    >
-                      {link}
-                    </Link>
-                  </li>
-                )
-              )}
+              {["Home", "Masterpieces", "Cheers", "Contact"].map((link) => (
+               <li key={link}>
+               <a
+                 href={`#${link.toLowerCase()}`}  // Using the id passed dynamically
+                 onClick={(e) => {
+                   e.preventDefault(); // Prevent default anchor behavior
+                   handleLinkClick(link);  // Your custom click handler
+                 }}
+                 className={`block py-2 px-3 md:p-0 font-mona font-extra z-100 font-bold 
+                 ${
+                   activeLink === link
+                     ? "text-blue-600"
+                     : "text-black dark:text-white"
+                 }
+                 ${
+                   darkMode
+                     ? "text-white hover:bg-gray-700"
+                     : "text-gray-900 hover:bg-gray-100"
+                 }
+                 rounded md:hover:bg-transparent dark:text-white md:hover:text-blue-700`}
+                 id={link.toLowerCase()}  // Adding dynamic id
+               >
+                 {link}
+               </a>
+             </li>
+             
+              ))}
             </ul>
           </div>
           <ToggleButton onClick={handleDarkModeToggle} />
@@ -109,21 +113,32 @@ const Navbar = ({ locoScroll }) => {
         {isMobileMenuOpen && (
           <div className="border-gray-300 shadow-lg transition-transform duration-300 z-[100] py-10 md:hidden">
             <ul className="flex flex-col font-medium p-4 place-items-end">
-              {["Home", "Masterpieces", "Cheers", "Contact"].map(
-                (link) => (
-                  <li key={link}>
-                    <Link
-                      to={link === "Home" ? "/" : `/${link.toLowerCase()}`}
-                      onClick={() => handleLinkClick(link)}
-                      className={`block py-2 px-3 font-gilroy text-black font-extra z-100 font-bold text-5xl ${
-                        activeLink === link ? "text-blue-600" : "text-black"
-                      }`}
-                    >
-                      {link}
-                    </Link>
-                  </li>
-                )
-              )}
+              {["Home", "Masterpieces", "Cheers", "Contact"].map((link) => (
+                <li key={link}>
+                <a
+                  href={`#${link.toLowerCase()}`}  // Using the id passed dynamically
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent default anchor behavior
+                    handleLinkClick(link);  // Your custom click handler
+                  }}
+                  className={`block py-2 px-3 md:p-0 font-mona font-extra z-100 font-bold 
+                  ${
+                    activeLink === link
+                      ? "text-blue-600"
+                      : "text-black dark:text-white"
+                  }
+                  ${
+                    darkMode
+                      ? "text-white hover:bg-gray-700"
+                      : "text-gray-900 hover:bg-gray-100"
+                  }
+                  rounded md:hover:bg-transparent dark:text-white md:hover:text-blue-700`}
+                  id={link.toLowerCase()}  // Adding dynamic id
+                >
+                  {link}
+                </a>
+              </li>
+              ))}
             </ul>
           </div>
         )}

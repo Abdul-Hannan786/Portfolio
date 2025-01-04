@@ -5,10 +5,14 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import "../index.css";
 import ProjectCard from "./ProjectCard";
-
-const ProjectsSection = ({ masterpieces }) => {
+import useStore from "../Store.js";
+const ProjectsSection = () => {
+  const { masterpieces } = useStore();
   return (
-    <section className="projects-section h-max relative py-10 scroll-smooth">
+    <section
+      className="projects-section h-max relative py-10 scroll-smooth"
+      id="masterpieces"
+    >
       <div className=" m-auto px-4">
         <h1 className="text-center text-5xl font-obviouslyBold text-[5rem]  dark:text-white text-gray-800 font-bold py-5 uppercase bg-gradient-text bg-clip-text  m-auto">
           Fresh Endeavors: Recent Ventures

@@ -9,41 +9,54 @@ import LocomotiveScroll from "locomotive-scroll";
 import NotFound from "./components/NotFound";
 import Admin from "./pages/Admin";
 import Home from "./pages/Home";
+import useStore from "./Store";
+import LoadingScreen from "./components/Loading";
 
 function App() {
+  const { setMasterpieces, setTestimonials } = useStore();
   const locomotiveScroll = new LocomotiveScroll();
-
-  const [isVisible, setIsVisible] = useState(true);
-  const [testimonials, setTestimonials] = useState([]);
-  const [masterpieces, setMasterpieces] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   const fetchData = async () => {
     try {
       const [testimonialsResponse, projectsResponse] = await Promise.all([
         getDocs(collection(db, "reviews")),
         getDocs(collection(db, "projects")),
       ]);
-      setTestimonials(testimonialsResponse.docs.map((doc) => doc.data()));
-      setMasterpieces(
-        projectsResponse.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+      const testimonialsData = testimonialsResponse.docs.map((doc) =>
+        doc.data()
       );
+      const masterpiecesData = projectsResponse.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setTestimonials(testimonialsData);
+      setMasterpieces(masterpiecesData);
+      console.log("all");
     } catch (error) {
       console.error("Error fetching data", error);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
     }
   };
 
   useEffect(() => {
+    fetchData();
     const handleVisibilityChange = () => {
-      setIsVisible(!document.hidden);
       document.title = document.hidden
         ? "Twist Time! Don't Blink!"
         : "Konain's Artistic Odyssey";
     };
-    fetchData();
     document.addEventListener("visibilitychange", handleVisibilityChange);
+
     return () =>
       document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, []);
+
+  if (loading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <Router>
@@ -65,16 +78,7 @@ function App() {
           <NavBar locoScroll={locomotiveScroll} />
 
           <Routes>
-            <Route
-              path="/"
-              element={
-                <Home
-                  locoScroll={locomotiveScroll}
-                  masterpieces={masterpieces}
-                  testimonials={testimonials}
-                />
-              }
-            />
+            <Route path="/" element={<Home />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
