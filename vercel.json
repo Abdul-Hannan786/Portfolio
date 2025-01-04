@@ -4,6 +4,9 @@
       "source": "/(.*)",
       "destination": "/index.html"
     },
-    { "src": "/admin", "dest": "/" },
+    {
+      "source": "/admin",
+      "destination": "/"
+    }
   ]
 }
