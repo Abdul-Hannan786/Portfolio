@@ -2,52 +2,33 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
-import Hero from "./components/Hero";
 import { db } from "../firebase-config";
 import { getDocs, collection } from "firebase/firestore";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
-import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 import LocomotiveScroll from "locomotive-scroll";
 import NotFound from "./components/NotFound";
 import Admin from "./pages/Admin";
+import Home from "./pages/Home";
 
 function App() {
-  console.log({
-    VITE_FIREBASE_API_KEY: import.meta.env.VITE_FIREBASE_API_KEY,
-    VITE_FIREBASE_AUTH_DOMAIN: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-    VITE_FIREBASE_PROJECT_ID: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-    VITE_FIREBASE_STORAGE_BUCKET: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-    VITE_FIREBASE_MESSAGING_SENDER_ID: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-    VITE_FIREBASE_APP_ID: import.meta.env.VITE_FIREBASE_APP_ID,
-    VITE_FIREBASE_MEASUREMENT_ID: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
-  });
-  const [isVisible, setIsVisible] = useState(true);
   const locomotiveScroll = new LocomotiveScroll();
+
+  const [isVisible, setIsVisible] = useState(true);
   const [testimonials, setTestimonials] = useState([]);
   const [masterpieces, setMasterpieces] = useState([]);
 
-  const fetchTestimonials = async () => {
+  const fetchData = async () => {
     try {
-      const response = await getDocs(collection(db, "reviews"));
-      const data = response.docs.map((doc) => doc.data());
-      setTestimonials(data);
+      const [testimonialsResponse, projectsResponse] = await Promise.all([
+        getDocs(collection(db, "reviews")),
+        getDocs(collection(db, "projects")),
+      ]);
+      setTestimonials(testimonialsResponse.docs.map((doc) => doc.data()));
+      setMasterpieces(
+        projectsResponse.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+      );
     } catch (error) {
-      console.error("Error fetching testimonials", error);
-    }
-  };
-
-  const fetchProjects = async () => {
-    try {
-      const response = await getDocs(collection(db, "projects"));
-      const data = response.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setMasterpieces(data);
-    } catch (err) {
-      console.error("Failed to fetch projects. Please try again later.");
+      console.error("Error fetching data", error);
     }
   };
 
@@ -58,12 +39,10 @@ function App() {
         ? "Twist Time! Don't Blink!"
         : "Konain's Artistic Odyssey";
     };
-    fetchTestimonials();
-    fetchProjects();
+    fetchData();
     document.addEventListener("visibilitychange", handleVisibilityChange);
-    return () => {
+    return () =>
       document.removeEventListener("visibilitychange", handleVisibilityChange);
-    };
   }, []);
 
   return (
@@ -84,11 +63,18 @@ function App() {
             <div className="absolute top-[50%] left-[-5%] w-[400px] h-[400px] bg-blue-600 opacity-15 rounded-full animate-[spin_10s_linear_infinite] blur-3xl"></div>
           </div>
           <NavBar locoScroll={locomotiveScroll} />
+
           <Routes>
-            <Route path="/" element={<Hero locoScroll={locomotiveScroll} />} />
-            <Route path="/masterpieces" element={<Projects locoScroll={locomotiveScroll} masterpieces={masterpieces} />} />
-            <Route path="/cheers" element={<Testimonials testimonials={testimonials} />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route
+              path="/"
+              element={
+                <Home
+                  locoScroll={locomotiveScroll}
+                  masterpieces={masterpieces}
+                  testimonials={testimonials}
+                />
+              }
+            />
             <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
