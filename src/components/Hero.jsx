@@ -5,7 +5,7 @@ import Grid from "./Grid";
 
 const Hero = () => {
   return (
-    <section className="hero-section relative lg:pt-12 md:pt-28 sm:pt-28 pt-28">
+    <section className="hero-section relative lg:pt-12 md:pt-28 sm:pt-28 pt-28" id="home">
       <div className="py-8 px-4 mx-auto max-w-screen-xl text-center relative z-20 ">
         <a
           href="#"
@@ -45,7 +45,7 @@ const Hero = () => {
           Pakistan, where pixels dance to the rhythm of my code.
         </p>
         <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 items-center">
-          <Link to="/masterpieces">
+          <a href="#masterpieces">
             <div className="sp">
               <button className="sparkle-button">
                 <span className="spark"></span>
@@ -365,7 +365,7 @@ const Hero = () => {
                 </svg>
               </span>
             </div>
-          </Link>
+            </a>
 
           <img
             src="/assets/images/robot.png"

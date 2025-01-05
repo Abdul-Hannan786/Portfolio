@@ -31,7 +31,6 @@ function App() {
       }));
       setTestimonials(testimonialsData);
       setMasterpieces(masterpiecesData);
-      console.log("all");
     } catch (error) {
       console.error("Error fetching data", error);
     } finally {
@@ -49,6 +48,11 @@ function App() {
         : "Konain's Artistic Odyssey";
     };
     document.addEventListener("visibilitychange", handleVisibilityChange);
+    console.log(
+      "%cWell, well... Someone's got the curiosity bug! 🐛\n%cEnjoy the ride and don't break anything 😉",
+      "color: #FF5733; font-size: 20px; font-weight: bold;",
+      "color: #28A745; font-size: 16px; font-style: italic;"
+    );
 
     return () =>
       document.removeEventListener("visibilitychange", handleVisibilityChange);

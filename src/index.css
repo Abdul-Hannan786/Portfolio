@@ -9,15 +9,18 @@
 @font-face {
   font-family: "Obviously-Bold";
   src: url('./assets/Fonts/obviously/ObviouslyComp-SemiBold.otf') format('truetype');
+  font-display: swap;
 }
 @font-face {
   font-family: "Gilroy";
   src: url('./assets/Fonts/gilroy/Gilroy-Regular.ttf') format('truetype');
+  font-display: swap;
 }
 
 @font-face {
   font-family: "mona";
   src: url('/assets/fonts/Mona/Mona-Sans-RegularWide.ttf') format('truetype');
+  font-display: swap;
 }
 
 body, html {
@@ -1069,3 +1072,12 @@ html, body{
   border-right: 0.2em solid green; /* Cursor */
   animation: typeAndDelete 4s steps(11) infinite, blinkCursor 0.5s step-end infinite alternate;
   margin-top: 1.5em;}
+
+  .no-scrollbar {
+    overflow-x: scroll;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+  }
+  

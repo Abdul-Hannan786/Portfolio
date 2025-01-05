@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import ToggleButton from "./ToggleButton";
 
-const Navbar = ({ locoScroll }) => {
+const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [activeLink, setActiveLink] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,7 +12,10 @@ const Navbar = ({ locoScroll }) => {
   };
 
   const handleLinkClick = (link) => {
-    console.log(document.getElementById(`${link.toLowerCase()}`))
+    const section = document.getElementById(link.toLowerCase());
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
     setActiveLink(link);
     setIsMobileMenuOpen(false);
   };
@@ -25,25 +27,25 @@ const Navbar = ({ locoScroll }) => {
   return (
     <nav className="w-[90%] px-10">
       <div
-        className={`fixed top-4 z-[100] left-1/2 transform -translate-x-1/2 w-[90%] max-w-3xl bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 rounded-2xl transition-all duration-300 ease-in-out h-max`}
+        className={`fixed top-4 z-[100] left-1/2 transform -translate-x-1/2 w-[90%] max-w-3xl bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-50 rounded-2xl transition-all duration-300 ease-in-out h-max`}
       >
         <div className="flex items-center justify-between p-4">
           <span
-            className={`text-6xl font-obviouslyBold whitespace-nowrap dark:text-white`}
+            className={`text-xl font-mona font-extrabold whitespace-nowrap dark:text-white`}
           >
             Konain Raza
           </span>
           <div className="hidden md:flex p-4">
             <ul className="flex space-x-8">
               {["Home", "Masterpieces", "Cheers", "Contact"].map((link) => (
-               <li key={link}>
-               <a
-                 href={`#${link.toLowerCase()}`}  // Using the id passed dynamically
-                 onClick={(e) => {
-                   e.preventDefault(); // Prevent default anchor behavior
-                   handleLinkClick(link);  // Your custom click handler
-                 }}
-                 className={`block py-2 px-3 md:p-0 font-mona font-extra z-100 font-bold 
+                <li key={link}>
+                  <a
+                    href={`#${link.toLowerCase()}`} // Using the id passed dynamically
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent default anchor behavior
+                      handleLinkClick(link); // Your custom click handler
+                    }}
+                    className={`block py-2 px-3 md:p-0 font-mona font-extra z-100 font-bold 
                  ${
                    activeLink === link
                      ? "text-blue-600"
@@ -55,12 +57,10 @@ const Navbar = ({ locoScroll }) => {
                      : "text-gray-900 hover:bg-gray-100"
                  }
                  rounded md:hover:bg-transparent dark:text-white md:hover:text-blue-700`}
-                 id={link.toLowerCase()}  // Adding dynamic id
-               >
-                 {link}
-               </a>
-             </li>
-             
+                  >
+                    {link}
+                  </a>
+                </li>
               ))}
             </ul>
           </div>
@@ -81,7 +81,7 @@ const Navbar = ({ locoScroll }) => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="size-6"
+                className="size-6 dark:text-black"
               >
                 <path
                   strokeLinecap="round"
@@ -97,7 +97,7 @@ const Navbar = ({ locoScroll }) => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="size-6"
+                className="size-6 text-white"
               >
                 <path
                   strokeLinecap="round"
@@ -115,13 +115,13 @@ const Navbar = ({ locoScroll }) => {
             <ul className="flex flex-col font-medium p-4 place-items-end">
               {["Home", "Masterpieces", "Cheers", "Contact"].map((link) => (
                 <li key={link}>
-                <a
-                  href={`#${link.toLowerCase()}`}  // Using the id passed dynamically
-                  onClick={(e) => {
-                    e.preventDefault(); // Prevent default anchor behavior
-                    handleLinkClick(link);  // Your custom click handler
-                  }}
-                  className={`block py-2 px-3 md:p-0 font-mona font-extra z-100 font-bold 
+                  <a
+                    href={`#${link.toLowerCase()}`} // Using the id passed dynamically
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent default anchor behavior
+                      handleLinkClick(link); // Your custom click handler
+                    }}
+                    className={`block py-2 px-3 md:p-0 font-mona text-4xl   font-extra z-100 font-bold 
                   ${
                     activeLink === link
                       ? "text-blue-600"
@@ -133,11 +133,10 @@ const Navbar = ({ locoScroll }) => {
                       : "text-gray-900 hover:bg-gray-100"
                   }
                   rounded md:hover:bg-transparent dark:text-white md:hover:text-blue-700`}
-                  id={link.toLowerCase()}  // Adding dynamic id
-                >
-                  {link}
-                </a>
-              </li>
+                  >
+                    {link}
+                  </a>
+                </li>
               ))}
             </ul>
           </div>

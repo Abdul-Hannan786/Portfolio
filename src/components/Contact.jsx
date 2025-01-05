@@ -28,13 +28,13 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="relative min-h-screen px-4 md:px-8 lg:pt-36  ">
-      <div id="contact-text" className="text-center mb-8 mx-auto">
-        <h1 className="text-7xl w-[90%] md:text-7xl mx-auto lg:text-8xl font-obviouslyBold text-gray-900 dark:text-gray-100">
+    <div id="contact" className="relative min-h-screen px-4 md:px-8  ">
+      <div id="contact-text" className="text-center mb-8 mx-auto md:w-[75%]">
+        <h1 className=" text-center text-4xl font-mona font-bold text-gray-800  dark:text-white py-5 uppercase">
           Explore the Digital Frontier? 🚀 Let's Turn Your Dreams into Digital
           Delights! ✨
         </h1>
-        <h4 className="mt-4 text-2xl text-gray-700 dark:text-gray-300 font-gilroy font-bold">
+        <h4 className="text-2xl text-gray-700 dark:text-gray-300 font-gilroy font-bold">
           Reach out today, and let's craft a plan to turn your dreams into
           reality!
         </h4>
