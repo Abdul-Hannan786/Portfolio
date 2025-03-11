@@ -9,6 +9,7 @@ import LocomotiveScroll from "locomotive-scroll";
 import NotFound from "./components/NotFound";
 import Admin from "./pages/Admin";
 import Home from "./pages/Home";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import useStore from "./Store";
 import LoadingScreen from "./components/Loading";
 
@@ -84,6 +85,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/admin" element={<Admin />} />
+             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
