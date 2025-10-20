@@ -1,6 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./App.css";
 import NavBar from "./components/NavBar";
 import { db } from "../firebase-config";
 import { getDocs, collection } from "firebase/firestore";
@@ -30,6 +30,8 @@ function App() {
         id: doc.id,
         ...doc.data(),
       }));
+      console.log("Fetched Testimonials:", testimonialsData);
+      console.log("Fetched Masterpieces:", masterpiecesData);
       setTestimonials(testimonialsData);
       setMasterpieces(masterpiecesData);
     } catch (error) {
@@ -46,7 +48,7 @@ function App() {
     const handleVisibilityChange = () => {
       document.title = document.hidden
         ? "Twist Time! Don't Blink!"
-        : "Konain's Artistic Odyssey";
+        : "Hannan's Artistic Odyssey";
     };
     document.addEventListener("visibilitychange", handleVisibilityChange);
     console.log(
@@ -59,9 +61,9 @@ function App() {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, []);
 
-  if (loading) {
-    return <LoadingScreen />;
-  }
+  // if (loading) {
+  //   return <LoadingScreen />;
+  // }
 
   return (
     <Router>
@@ -85,7 +87,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/admin" element={<Admin />} />
-             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

@@ -1,4 +1,4 @@
-import React from "react";
+
 import {
   FaGithub,
   FaInstagram,
@@ -14,31 +14,31 @@ const Footer = () => {
       name: "github",
       icon: <FaGithub className="icon-svg" />,
       tooltip: "GitHub",
-      url: "https://github.com/Konain-Raza/"
+      url: "https://github.com/Abdul-Hannan786/"
     },
     {
       name: "linkedin",
       icon: <FaLinkedin className="icon-svg" />,
       tooltip: "LinkedIn",
-      url: "https://www.linkedin.com/in/konain-raza-/"
+      url: "https://www.linkedin.com/in/abdulhannanjs/"
     },
     {
       name: "gmail",
       icon: <FaEnvelope className="icon-svg" />,
       tooltip: "Gmail",
-      url: "mailto:konainraza105@gmail.com"
+      url: "mailto:abdulhannahere@gmail.com"
     },
     {
       name: "facebook",
       icon: <FaFacebook className="icon-svg" />,
       tooltip: "Facebook",
-      url: "https://www.facebook.com/share/qzZYjZDBRKyQBdyt/?mibextid=qi2Omg"
+      url: "https://www.facebook.com/abdul.hannan.735360/"
     },
     {
       name: "instagram",
       icon: <FaInstagram className="icon-svg" />,
       tooltip: "Instagram",
-      url: "https://www.instagram.com/konainraza_01/"
+      url: "https://www.instagram.com/abdulhannanhere_05"
     }
   ];
 
@@ -48,7 +48,7 @@ const Footer = () => {
         <p className="font-gilroy text-xl font-bold text-center sm:text-md dark:text-white text-gray-800">
           Made with <span className="emoji">❤️</span> by{' '}
           <a href="https://www.linkedin.com/in/konain-raza-" target="_blank" rel="noopener noreferrer">
-            Konain Raza
+            Abdul Hannan
           </a>
         </p>
       </div>

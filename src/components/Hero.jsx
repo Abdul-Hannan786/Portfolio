@@ -1,6 +1,3 @@
-import React, { useEffect } from "react";
-import LocomotiveScroll from "locomotive-scroll";
-import { Link } from "react-router-dom";
 import Grid from "./Grid";
 
 const Hero = () => {
@@ -41,7 +38,7 @@ const Hero = () => {
         </h1>
 
         <p className="mb-8 text-lg font-gilroy text-gray-500 lg:w-[90%] mx-auto lg:text-xl font-bold sm:px-16 xl:px-48 dark:text-gray-400">
-          Salutations! I'm Konain, a digital virtuoso conjuring magic from
+          Salutations! I&apos;m Abdul Hannan, a digital virtuoso conjuring magic from
           Pakistan, where pixels dance to the rhythm of my code.
         </p>
         <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 items-center">

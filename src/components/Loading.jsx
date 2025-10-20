@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import{ useState, useEffect } from "react";
 import "../index.css";
 
 const LoadingScreen = () => {
@@ -25,7 +25,7 @@ const LoadingScreen = () => {
             </div>
           </div>
           <div className="w-max flex items-end gap-3">
-            <p className="m-0 p-0 h-max text-white">konain@raza:~$</p>
+            <p className="m-0 p-0 h-max text-white">Abdul@Hannan:~$</p>
             <div className="texts">{loadingText}</div>
           </div>
         </div>

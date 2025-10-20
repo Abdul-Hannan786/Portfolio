@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ToggleButton from "./ToggleButton";
 
 const Navbar = () => {
@@ -33,7 +33,7 @@ const Navbar = () => {
           <span
             className={`text-xl font-mona font-extrabold whitespace-nowrap dark:text-white`}
           >
-            Konain Raza
+           Abdul Hannan
           </span>
           <div className="hidden md:flex p-4">
             <ul className="flex space-x-8">
