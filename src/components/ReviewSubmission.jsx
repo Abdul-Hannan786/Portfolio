@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { db, storage } from "../../firebase-config";
+import { db } from "../../firebase-config";
 import { collection, addDoc } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const ReviewSubmission = () => {
   const [loading, setLoading] = useState(false);
@@ -14,11 +13,22 @@ const ReviewSubmission = () => {
 
     const data = new FormData(e.target);
     const image = data.get("image");
-    const storageRef = ref(storage, `reviewers/${image.name}`);
 
     try {
-      const snapshot = await uploadBytes(storageRef, image);
-      const downloadURL = await getDownloadURL(snapshot.ref);
+      const formData = new FormData();
+      formData.append("file", image);
+      formData.append("upload_preset", "my_unsigned_preset");
+
+      const cloudinaryResponse = await fetch(
+        "https://api.cloudinary.com/v1_1/dsgrazgwe/image/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const cloudinaryData = await cloudinaryResponse.json();
+      const downloadURL = cloudinaryData.secure_url;
 
       const reviewData = {
         reviewerName: data.get("name"),
@@ -43,10 +53,7 @@ const ReviewSubmission = () => {
         <h1 className="text-xl md:text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white mb-4 text-left">
           Submit a Review
         </h1>
-        <form
-          className="flex flex-wrap gap-4"
-          onSubmit={handleSubmit}
-        >
+        <form className="flex flex-wrap gap-4" onSubmit={handleSubmit}>
           <div className="flex-1 min-w-[200px]">
             <label
               htmlFor="reviewerName"

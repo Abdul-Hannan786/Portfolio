@@ -61,9 +61,9 @@ function App() {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, []);
 
-  // if (loading) {
-  //   return <LoadingScreen />;
-  // }
+  if (loading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <Router>

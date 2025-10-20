@@ -1,40 +1,35 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Confetti from "react-confetti";
-import firebase from "../assets/Images/firebase.png";
 import Marquee from "react-fast-marquee";
 import ClipboardButton from "./CopyButton";
 import "../index.css";
 const Grid = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   const skills = [
+    "nextjs",
     "html",
     "css",
     "javascript",
-    "dart",
-    "c",
-    "cpp",
-    "php",
-    "py",
+    "ts",
+    "react",
     "nodejs",
-    "figma",
+    "express",
+    "mongodb	",
     "bootstrap",
     "tailwindcss",
-    "react",
-    "docker",
-    "dotnet",
-    "flutter",
+    "materialui",
+    "firebase",
+    "redux",
     "git",
     "github",
-    "ai",
-    "ps",
-    "linux",
-    "md",
-    "mysql",
+    "npm",
+    "postman",
     "netlify",
     "vercel",
   ];
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText("konainraza105@gmail.com");
+
+  const copyToClipboard = async () => {
+    navigator.clipboard.writeText("abdulhannanhere@gmail.com");
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 3000);
   };
@@ -47,12 +42,12 @@ const Grid = () => {
       <div className="col-span-1 sm:col-span-2 lg:col-span-2 border-opacity-30 border-solid rounded-3xl shadow-lg p-6 flex items-center justify-center bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100">
         <div className="text-left text-gray-800 dark:text-gray-200 ">
           <h2 className="text-gray-800 dark:text-gray-200 text-2xl font-mona font-bold mb-2">
-            Hey There, I'm Konain Raza! 😎
+            Hey There, I&apos;m Abdul Hannan! 😎
           </h2>
           <p className="text-xl sm:text-xl lg:text-xl  font-gilroy">
             Stirring up creativity and code to bake digital masterpieces! 🎨💻
-            If tech is a puzzle, I'm your missing piece—let’s solve it together
-            and make magic happen! 🧩✨🚀
+            If tech is a puzzle, I&apos;m your missing piece—let’s solve it
+            together and make magic happen! 🧩✨🚀
           </p>
         </div>
       </div>
@@ -145,14 +140,14 @@ const Grid = () => {
             >
               {skills.map((skill) => (
                 <a
-                  key={skill}
                   href="https://skillicons.dev"
+                  key={skill}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-none mt-5 flex items-center h-max justify-center" // Centered items for better alignment
                 >
                   <img
-                    src={`https://skillicons.dev/icons?i=${skill}&theme=dark`}
+                    src={`https://skillicons.dev/icons?i=${skill}`}
                     alt={skill}
                     className="h-13 mx-3 transition-transform duration-200 hover:scale-125" // Slightly smaller height for better responsiveness
                   />

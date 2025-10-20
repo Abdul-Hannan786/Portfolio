@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { db, storage } from "../../firebase-config";
+import { db } from "../../firebase-config";
 import { collection, addDoc } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const ProjectSubmission = () => {
   const [loading, setLoading] = useState(false);
+  const isMounted = useRef(true);
+
+  useEffect(() => {
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,11 +20,28 @@ const ProjectSubmission = () => {
 
     const data = new FormData(e.target);
     const image = data.get("image");
-    const storageRef = ref(storage, `thumbnails/${image.name}`);
 
     try {
-      const snapshot = await uploadBytes(storageRef, image);
-      const downloadURL = await getDownloadURL(snapshot.ref);
+      const formData = new FormData();
+      formData.append("file", image);
+      formData.append("upload_preset", "my_unsigned_preset");
+
+      const cloudinaryResponse = await fetch(
+        "https://api.cloudinary.com/v1_1/dsgrazgwe/image/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const cloudinaryData = await cloudinaryResponse.json();
+      const downloadURL = cloudinaryData.secure_url;
+
+      if (!downloadURL) {
+        throw new Error(
+          "Image upload failed — no URL returned from Cloudinary."
+        );
+      }
 
       const projectData = {
         name: data.get("name"),
@@ -30,13 +53,21 @@ const ProjectSubmission = () => {
       };
 
       await addDoc(collection(db, "projects"), projectData);
-      toast.success("Project added successfully!");
+
+      if (isMounted.current) {
+        toast.success("Project added successfully!");
+      }
+
       e.target.reset();
     } catch (error) {
-      console.error("Error adding project: ", error.message || error);
-      toast.error("Failed to add project. Please try again.");
+      console.error("Error adding project:", error.message || error);
+      if (isMounted.current) {
+        toast.error("Failed to add project. Please try again.");
+      }
     } finally {
-      setLoading(false);
+      if (isMounted.current) {
+        setLoading(false);
+      }
     }
   };
 

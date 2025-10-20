@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import GitHubCalendar from "react-github-calendar";
 
 const GitHubCalendarComponent = () => {
@@ -23,7 +23,7 @@ const GitHubCalendarComponent = () => {
       ) : (
         <div className="flex justify-center w-full">
           <GitHubCalendar
-            username={"Konain-Raza"}
+            username={"Abdul-Hannan786"}
             colorScheme="dark"
             style={{ color: "white", fontWeight: "bold" }}
           />

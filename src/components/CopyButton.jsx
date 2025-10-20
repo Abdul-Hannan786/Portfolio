@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../index.css";
 import Confetti from "react-confetti";
 
 
 const ClipboardButton = () => {
+  // eslint-disable-next-line no-unused-vars
   const [copied, setCopied] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
 
-  const email = "konainraza105@gmail.com"; 
+  const email = "abdulhannanhere@gmail.com"; 
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(email).then(() => {

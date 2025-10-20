@@ -1,4 +1,3 @@
-import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import emailjs from "@emailjs/browser";
@@ -6,9 +5,9 @@ import emailjs from "@emailjs/browser";
 const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
-    const serviceId = "service_sfsfl6s";
-    const templateId = "template_s6wyyp9";
-    const publicId = "653vSQw-IllGaimre";
+    const serviceId = "service_x4vh2e3";
+    const templateId = "template_v4xus15";
+    const publicId = "LxAjxJc6Aiw2gWPAB";
     const data = new FormData(e.target);
     const emailFormat = {
       name: data.get("name"),
@@ -31,17 +30,17 @@ const Contact = () => {
     <div id="contact" className="relative min-h-screen px-4 md:px-8  ">
       <div id="contact-text" className="text-center mb-8 mx-auto md:w-[75%]">
         <h1 className=" text-center text-4xl font-mona font-bold text-gray-800  dark:text-white py-5 uppercase">
-          Explore the Digital Frontier? 🚀 Let's Turn Your Dreams into Digital
+          Explore the Digital Frontier? 🚀 Let&apos;s Turn Your Dreams into Digital
           Delights! ✨
         </h1>
         <h4 className="text-2xl text-gray-700 dark:text-gray-300 font-gilroy font-bold">
-          Reach out today, and let's craft a plan to turn your dreams into
+          Reach out today, and let&apos;s craft a plan to turn your dreams into
           reality!
         </h4>
       </div>
       <div id="contact-btns" className="text-center mb-8">
         <a
-          href="https://www.linkedin.com/in/konain-raza-"
+          href="https://www.linkedin.com/in/abdulhannanjs"
           target="_blank"
           rel="noopener noreferrer"
         >
